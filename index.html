@@ -8,8 +8,21 @@
             var Web3 = require('web3');
             var web3 = new Web3();
             web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
+
+            var abi = [{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"x","type":"string"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"data","type":"string"}],"payable":false,"type":"function"}];
+            var contractAddress = "0x64325c9F5FC8EF8E9E2cc62B015C2fdda5a0aB2E";
+            var helloWorldContract = web3.eth.contract(abi).at(contractAddress);
+
+            function get_value_of_x(){
+                x = helloWorldContract.get();
+                document.getElementById("value-of-x").innerText = x;
+            }
+
         </script>
         <h1>Simple HTML page</h1>
+        <h3>Value of x: </h3>
+        <p id="value-of-x">0</p>
+        <button onclick="get_value_of_x()">Get value of x</button>
 
     </body>
 </html>
