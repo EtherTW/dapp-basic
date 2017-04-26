@@ -18,11 +18,18 @@
                 document.getElementById("value-of-x").innerText = x;
             }
 
+            function call_contract(){
+                web3.eth.defaultAccount = web3.eth.accounts[0];
+                helloWorldContract.set("5566");
+            }
+
         </script>
         <h1>Simple HTML page</h1>
         <h3>Value of x: </h3>
         <p id="value-of-x">0</p>
         <button onclick="get_value_of_x()">Get value of x</button>
+
+        <button onclick="call_contract()">Call contract</button>
 
     </body>
 </html>
