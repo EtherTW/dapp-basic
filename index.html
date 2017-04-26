@@ -20,7 +20,8 @@
 
             function call_contract(){
                 web3.eth.defaultAccount = web3.eth.accounts[0];
-                helloWorldContract.set("5566");
+                x = document.getElementById("update").value;
+                helloWorldContract.set(x);
             }
 
         </script>
@@ -28,8 +29,9 @@
         <h3>Value of x: </h3>
         <p id="value-of-x">0</p>
         <button onclick="get_value_of_x()">Get value of x</button>
-
-        <button onclick="call_contract()">Call contract</button>
+        <br>
+        <input id="update">
+        <button onclick="call_contract()">Update value</button>
 
     </body>
 </html>
